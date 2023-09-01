@@ -1,26 +1,50 @@
 ---
-title: "hw0"
-format: pdf
+title: "homework0"
+format: html
 editor: visual
+execute:
+  echo: false
 ---
 
-## Homework 0
+## Exercises
 
-Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
-
-## Running Code
-
-When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
-
+(@) Write a Quarto document that defines variables $a=1, b=-1, c=-2$
+and print out the solutions to $f(x) = ax^2+bx+c=0$. Do not report complex solutions, only real numbers. 
 ```{r}
-1 + 1
+# define the variable
+a <- 1
+b <- 3
+c <- 2
+
+# calculate the solution 
+solution1 <- (-b + sqrt(b^2 - 4*a*c)) / (2*a)
+solution2 <- (-b - sqrt(b^2 - 4*a*c)) / (2*a)
+
+#| print the results
+print(solution1)
+print(solution2)
 ```
 
-You can add options to executable code like this
+
+(@) Include a graph of $f(x)$ versus $x$ for $x \in (-5,5)$.
+
+This is how you make a plot of a quadratic function:
 
 ```{r}
-#| echo: false
-2 * 2
+a <- 1 
+b <- 3
+c <- 2
+x <- seq(-5, 5, length = 300)
+plot(x, a*x^2 + b*x + c, type = "l")
+abline(h = 0, lty = 2)
 ```
 
-The `echo: false` option disables the printing of code (only output is displayed).
+(@) Generate a PDF report using knitr. Do not show the R code, only the solutions and explanations of what the reader is seeing.
+
+(@) Erase the PDF report and reproduce it but this time using $a=1, b=2, c=5$. 
+
+(@) Erase the PDF report and reproduce it but this time using $a=1, b=3, c=2$. 
+
+(@) Create an HTML page with the results for this last set of values, but this time showing the code. 
+ 
+
